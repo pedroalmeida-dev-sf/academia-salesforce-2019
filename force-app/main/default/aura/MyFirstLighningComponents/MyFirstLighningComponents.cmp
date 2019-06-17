@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="MyFirstClass" >
+    <aura:attribute name = "msg" type = "string" default="Olá Mundo"/>
+    <aura:attribute name = "listAccounts" type="Account[]"/>
+    <html>
+    	<head>
+        </head>
+        <body>
+            <h1>{!v.msg}</h1>
+        	<h1 class="red">Olá Mundo</h1>
+            <lightning.button variant = "brand" label="botao" onclick="{!c.firstFunction}"></lightning.button>
+        </body>
+	</html>
+</aura:component>

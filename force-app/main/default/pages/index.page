@@ -1,0 +1,27 @@
+<apex:page showHeader="false" controller="testController">
+    
+    
+  
+  <h1>hello </h1>
+  
+  	<apex:outputPanel id="display">
+    	<apex:outputText value="My var is {!myVar}"/>
+      	<br/>
+      	<apex:outputText value="My var2 is {!myVar2}"/>
+    </apex:outputPanel>
+    
+    <br/><br/>
+    
+    <apex:outputPanel >
+    	<apex:outputText value="My var is {!myVar}"/>
+    </apex:outputPanel>
+    	
+    <apex:form >
+    	<apex:commandButton action="{!save}" value="Update My Var" id="theButton"/>
+	</apex:form>
+    
+	 <apex:form >
+    	<apex:commandButton action="{!contact}" value="Contacte-nos" id="theButton"/>
+	</apex:form>
+	<apex:image url="https://c1.sfdcstatic.com/content/dam/blogs/us/thumbnails/introducing-trailhead-for-students-empowering-the-next-generation-of-trailblazers-for-a-top-career-in-tech/trailhead_for_students.png" />
+</apex:page>

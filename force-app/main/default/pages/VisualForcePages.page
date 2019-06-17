@@ -1,0 +1,3 @@
+<apex:page showHeader="true" sidebar="true">
+	ola mundo
+</apex:page>

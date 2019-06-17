@@ -1,0 +1,501 @@
+<!-- Page: -->
+<!--<apex:page controller="dataList">-->
+<apex:page showheader="false" standardController="Lead" extensions="myWeb2LeadExtension,myCampaignImageExtension,myProductsExtension">
+<title>Cozinha Branca - Produtos Pré-Confeccionados</title>
+    
+   <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+  <!--
+   <script src="js/jquery.js"></script>
+   -->
+   <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/jquery.js')}"/> 
+	
+  <!--
+   <script src="js/jquery.glide.js"></script>
+  -->
+   <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/jquery.glide.js')}"/> 
+    
+  <!--  <link rel="stylesheet" href="css/style.css"/>-->
+    <!--<apex:stylesheet value="{!URLFOR($Resource.site, 'css/style.css')}"/>-->
+    <link href="{!URLFOR($Resource.siteNomes, 'css/style.css')}"
+        rel="stylesheet" /> 
+    <!--<link rel="stylesheet" href="css/animate.css"/>-->
+    <!--<apex:stylesheet value="{!URLFOR($Resource.site, 'css/animate.css')}"/>-->
+    <link href="{!URLFOR($Resource.siteNomes, 'css/animate.css')}"
+        rel="stylesheet" /> 
+
+<!--    <script type="text/javascript" src="js/MyJQ.js"></script>-->
+    <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/MyJQ.js')}"/> 
+    <!--<script src="js/jquery.localScroll.min.js" type="text/javascript"></script>-->
+    <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/jquery.localScroll.min.js')}"/> 
+	  
+    <!--<script src="js/jquery.scrollTo.min.js" type="text/javascript"></script> -->
+    <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/jquery.scrollTo.min.js')}"/> 
+
+    <apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/wow.min.js')}"/> 
+    <!--<script src="js/wow.min.js" type="text/javascript"></script> -->
+
+<!-- scroll function -->
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#navigations').localScroll({duration:800});
+});
+</script>
+
+
+<!--<script src="js/wow.min.js"></script>-->
+<apex:includeScript value="{!URLFOR($Resource.siteNomes, 'js/wow.min.js')}"/>
+<script>
+new WOW().init();
+</script>
+
+
+<body>
+
+<!--============ Navigation ============-->
+<script>
+    function SFDCJumpTo(destination) {
+        window.location.hash='#'+destination;
+    }
+</script>
+          
+    
+<apex:outputPanel html-class="headerwrapper">
+	<apex:outputPanel html-data-id="header" html-class="container">
+		<apex:outputPanel html-class="logo"> <a href="#"><apex:image url="{!URLFOR($Resource.site,
+                  'images/LOGO2.png')}" alt="logo"/></a> </apex:outputPanel><!--end of Logo-->
+        <nav>
+            <ul id="navigations">
+                <li><a href="#">HOME</a></li>
+                <li><a onclick="SFDCJumpTo('Section1');" href="javascript:void(0)">PRODUTOS</a></li>
+                <li><a onclick="SFDCJumpTo('Section2');" href="javascript:void(0)">LOCALIZAÇÃO</a></li>
+                <li><a onclick="SFDCJumpTo('Section3');" href="javascript:void(0)">CONTACTE-NOS</a></li>
+            </ul>
+        </nav>
+      </apex:outputPanel> <!--end of header-->
+</apex:outputPanel> <!-- end of headerwrapper-->
+
+<apex:outputPanel id="teste" html-class="sliderwrapper">
+      <div id="slider" class="container">
+           <div class="slider">
+      			<ul class="slides">
+    		 	 	  <li class="slide">
+                        <!--<br/>
+                        <br/>-->
+                        <apex:dataList value="{!campaigns}" var="campaign" rows="1" first="0">
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">
+                          <apex:outputText styleClass="slide" value="{!campaign.Name}"/> 
+                        </h5>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                      	<p style="margin-left:0px" class="wow fadeInUp" data-wow-delay="0.8s">
+                            <apex:outputText value="{!campaign.Description}"/>
+                        </p>
+                        <apex:dataList value="{!FileId0}" var="imagem" rows="1" first="0">
+                        <!--lalala {!imagem} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, imagem)}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slide1img" html-data-wow-delay="0.8s"/>
+                        
+                       </apex:dataList>
+                        </apex:dataList>
+                                               
+                      <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/slideimg1.png')}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slide1img" html-data-wow-delay="0.8s"/>--><!--data-wow-delay="0.8s"-->
+                      </li>
+      			 	<li class="slide">
+                         <apex:dataList value="{!campaigns}" var="campaign" rows="1" first="1">
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">
+                          <apex:outputText styleClass="slide" value="{!campaign.Name}"/> 
+                        </h5>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                      	<p style="margin-left:0px" class="wow fadeInUp" data-wow-delay="0.8s">
+                            <apex:outputText value="{!campaign.Description}"/>
+                        </p>
+
+
+                        <apex:dataList value="{!FileId1}" var="imagem2" rows="1" first="0">
+                        <!--lalala {!imagem2} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, imagem2)}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slide1img" html-data-wow-delay="0.8s"/>
+                        
+                       </apex:dataList>
+                        </apex:dataList>
+                       
+                        <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/rolinho_carne.jpg')}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slideimg2" html-data-wow-delay="0.8s"/>--> <!--data-wow-delay="0.8s"-->
+                      </li>
+     			 	  <li class="slide">
+                        <apex:dataList value="{!campaigns}" var="campaign" rows="1" first="2">
+                      	<h5 class="wow fadeInDown" data-wow-delay="0.8s">
+                          <apex:outputText styleClass="slide" value="{!campaign.Name}"/> 
+                        </h5>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                      	<p style="margin-left:0px" class="wow fadeInUp" data-wow-delay="0.8s">
+                            <apex:outputText value="{!campaign.Description}"/>
+                        </p>
+                        <apex:dataList value="{!FileId2}" var="imagem3" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, imagem3)}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slide1img" html-data-wow-delay="0.8s"/>
+                        
+                       </apex:dataList>
+                        </apex:dataList>
+                         
+                       <!--   
+                      <apex:image url="{!URLFOR($Resource.site,
+                  'images/pasteis_bacalhau.jpg')}" width="317" height="256" styleClass="wow fadeInRight" 
+                       alt="slideimg3" html-data-wow-delay="0.8s"/>--> <!--data-wow-delay="0.8s"-->
+                      </li>
+        		  </ul>
+            </div>
+      </div> <!-- End of Slider-->
+</apex:outputPanel> <!-- end of sliderwrapper-->
+
+
+<!--dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+
+
+<!--
+    <apex:dataList value="{!campaigns}" var="campaign" rows="1" first="0">
+        <apex:outputText value="{!campaign.Description}"/>
+    </apex:dataList>
+-->
+
+<!--....................................-->
+
+<!--============ Best Dishes ============-->
+
+
+<a name="Section1" />
+<div class="bestdisheswrapper">
+    <div id="bestdishes" class="container">
+       
+		 <h2 class="wow fadeInUp" data-wow-delay="0.3s">Os nossos Produtos</h2>
+      <div class="slider">
+      		    <ul class="slides">
+          	 	 <li class="slide">
+                    <div class="item">
+                    <apex:dataList value="{!FilePId0}" var="i0" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, i0)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                          <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/slideimg2.png')}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />--> <!--data-wow-delay="0.8s"-->
+                          <br/>
+                          
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="0">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                      
+                   <div class="item2">
+                          <apex:dataList value="{!FilePId1}" var="i1" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, i1)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                           <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/slideimg3.png')}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />-->  <!--data-wow-delay="0.8s"-->
+                  <br/>
+                  
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="1">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                      
+                   <div class="item3">
+                          <apex:dataList value="{!FilePId2}" var="i2" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, i2)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                           <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/slideimg4.png')}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />-->  <!--data-wow-delay="0.8s"-->
+                  <br/>
+                  
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="2">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                  </li>
+                   <li class="slide">
+                    <div class="item">
+                          <apex:dataList value="{!FilePId3}" var="i3" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, i3)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                          <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/rolinho_carne.jpg')}" width="226" height="225" alt="sliderimg" /> --> 
+                          <br/>
+                          
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="3">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                      
+                   <div class="item2">
+                          <apex:dataList value="{!FilePId4}" var="i4" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, i4)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                          <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/slideimg1.png')}" width="226" height="225" alt="sliderimg" /> -->
+                          <br/>
+                          
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="4">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                      
+                   <div class="item3">
+                        <apex:dataList value="{!FilePId5}" var="imagem5" rows="1" first="0">
+                        <!--lalala {!imagem3} sdfds-->
+                        <apex:image url="{!URLFOR($Action.Attachment.Download, imagem5)}" width="226" height="225" alt="sliderimg" styleClass="wow flipInX" />
+                        
+                       </apex:dataList>
+                          <!--<apex:image url="{!URLFOR($Resource.site,
+                  'images/pasteis_bacalhau.jpg')}" width="226" height="225" alt="sliderimg" />-->
+                          <br/>
+                          
+                          <apex:dataList value="{!Products}" var="p" rows="1" first="5">
+                          <h3><apex:outputText value="{!p.Name}"/></h3>
+                          </apex:dataList>
+                      </div> <!-- end of item-->
+                  </li>
+                   
+        </ul>
+      </div> <!-- end of slider-->
+    </div> <!-- end of besth dishes-->
+</div> <!-- end of bestdishes wrapper-->
+
+
+
+<br/>
+<br/>
+<div class="bookonlinewrapper">
+    <div class="container" id="bookonline">
+    <!--<h3 class="wow fadeInUp" data-wow-delay="0.3s"> Encomende Online</h3>-->
+    <h3 class="wow fadeInUp" data-wow-delay="0.3s">A nossa localização</h3>
+    <br/>
+    <br/>
+
+    </div>
+</div> <!-- end of book online wrapper-->
+
+<!--============ MAP ============-->
+<a name="Section2" />
+<div id="mapa" class="mapwrapper">
+    <div id="map" class="container">
+    
+    <!--<iframe src="https://www.google.com/maps/embed/v1/place?q=Pra%C3%A7a%20%C3%81lvaro%20Lopes%208%20-%20A%2FB%20-%20cv%20-%20lj%20-%20B%20Amadora%202700-046%20AMADORA&amp;key=AIzaSyCjcwVQGVTmO11Vo5jbUmpxdf_FdoinQEY" ></iframe>-->
+    <apex:iframe src="https://www.google.com/maps/embed/v1/place?q=Pra%C3%A7a%20%C3%81lvaro%20Lopes%208%20-%20A%2FB%20-%20cv%20-%20lj%20-%20B%20Amadora%202700-046%20AMADORA&key=AIzaSyCjcwVQGVTmO11Vo5jbUmpxdf_FdoinQEY"/>
+    
+    </div> <!-- end of map id-->
+
+</div>    <!-- end of map wrapper-->
+
+
+<!--============ Contact us ============-->
+
+<div class="contactwrapper">
+
+  <div id="contactus" class="container">
+       
+        <h3 class="wow fadeInUp" data-wow-delay="0.3s">Contacte-nos</h3>
+       
+      <!--end of .staff-->
+
+    </div> 
+    <!--contactus class-->
+	 
+</div> <!-- end of contact wrapper-->
+
+
+<!--============ FOOTER ============-->
+
+<a name="Section3" />
+<div class="footerwrapper">
+    <footer class="container">
+    	<div class="customerreview">
+            <br/>
+      	    <br/>
+
+       		 <h2>FEEDBACK DOS CLIENTES</h2>
+                <br/>
+                <br/>
+          <div class="review">
+          <apex:dataList value="{!leads}" var="Lead" rows="1" first="0">
+        	<p><strong>&#8220; </strong><apex:outputText value="{!Lead.Description}"/>  
+            <strong>&#8221;</strong></p>
+             
+             <h4>- <apex:outputText value="{!Lead.Name}"/> </h4>
+            
+            </apex:dataList>
+        	</div> <!-- end of review-->
+             
+              <div class="clearfix"></div>
+              <div class="line"></div>
+              <br/>
+          <div class="review">
+        	<apex:dataList value="{!leads}" var="Lead" rows="1" first="1">
+        	<p><strong>&#8220; </strong><apex:outputText value="{!Lead.Description}"/>  
+            <strong>&#8221;</strong></p>
+             
+             <h4>- <apex:outputText value="{!Lead.Name}"/> </h4>
+            
+            </apex:dataList>
+            
+            
+        	</div> <!-- end of review-->
+             
+              <div class="clearfix"></div>
+              <div class="line"></div>
+              <br/>
+          <div class="review">
+        	<apex:dataList value="{!leads}" var="Lead" rows="1" first="2">
+        	<p><strong>&#8220; </strong><apex:outputText value="{!Lead.Description}"/>  
+            <strong>&#8221;</strong></p>
+             
+             <h4>- <apex:outputText value="{!Lead.Name}"/> </h4>
+            
+            </apex:dataList>
+            
+            
+        	</div> <!-- end of review-->
+              
+            
+            
+        </div>
+        <div class="socialize">
+      	<br/>
+       	<br/>
+
+      <h2>Redes Sociais</h2>
+      <br/>
+      <br/>
+        <div class="socialimgs">
+          <a href="https://www.facebook.com"><apex:image url="{!URLFOR($Resource.site,
+                  'images/fb.png')}" width="68" height="68" styleClass="facebookk" alt="fb" /></a>
+        <a href="https://www.twitter.com"><apex:image url="{!URLFOR($Resource.site,
+                  'images/twitter.png')}" width="68" height="68" styleClass="twitterr" alt="twitter" /></a>
+        <a href="https://www.youtube.com"><apex:image url="{!URLFOR($Resource.site,
+                  'images/youtube.png')}" width="68" height="68" styleClass="youtubee" alt="youtube" /></a>
+        <a href="https://plus.google.com/people"><apex:image url="{!URLFOR($Resource.site,
+                  'images/g+.png')}" width="68" height="68" styleClass="googlee" alt="g+" /></a>
+          <a href="mailto:cozinhabranca@gmail.com"><apex:image url="{!URLFOR($Resource.site,
+                  'images/message.png')}" width="68" height="68" styleClass="messagee" alt="message" /></a>
+      </div> <!--end of social imgs-->
+      
+       </div>
+      
+            	<br/>
+      	<br/>
+
+      <div class="sendfeedback">
+  	  <h2>
+	  Deixe-nos o seu contacto!
+	  </h2>
+      <br/>
+      <br/>
+      
+    
+      <apex:form >
+      
+            
+                <h2> 
+                Primeiro Nome:
+                    <apex:inputField label="Primeiro Nome" value="{!Lead.FirstName}"/>
+                </h2>
+                <h2>
+                Último Nome
+                    <apex:inputField label="Último Nome" value="{!Lead.LastName}"/>
+                </h2>
+                <h2>
+                Telefone:
+                    <apex:inputField label="Telefone" value="{!Lead.Phone}"/>
+                </h2>
+                <h2>
+                Email:
+                    <apex:inputField label="Email" value="{!Lead.Email}"/>
+                </h2>
+                <h2>
+                Empresa:
+                    <apex:inputField label="Empresa" value="{!Lead.Company}"/>
+                </h2>
+                <h2>
+                Mensagem:
+                    <apex:inputTextarea label="Mensagem" value="{!Lead.description}"/>
+                </h2>
+                <br/>
+                <br/>
+                <apex:commandButton value="Enviar" action="{!saveLead}" html-background="#3d6e96" html-color="#1f527b" html-font-size="16px" html-font-family="OSWALD-regular" html-width="95px" html-height="29px" html-border="0px" html-border-radius="4px" html-margin-top="20px" html-cursor="pointer"/>
+               
+      </apex:form>
+      
+
+        
+        </div> <!-- end of feedback-->
+        
+    
+    
+    
+    </footer> <!-- end of footer-->
+
+</div> <!-- end of footer-->
+
+
+<!--============ COPYRIGHTS ============-->
+
+<div class="copyrightswrapper">
+    <div id="copyrights" class="container">
+    
+ 	   <p>Copyright 2018 Cozinha Branca All Rights Reserved</p>
+    
+    </div> <!-- end of copyrights-->
+</div> <!-- end of website-->
+	
+
+
+<script type="text/javascript">
+    $('.sliderwrapper .slider').glide({
+		autoplay: 7000,
+		animationDuration: 3000,
+		arrows: true,
+		
+		
+	
+		});
+	
+</script>
+	
+    <script type="text/javascript">
+    $('.bestdisheswrapper .slider').glide({
+		autoplay: false,
+		animationDuration: 700,
+		arrows: true,
+		navigation:false,
+		
+		
+	
+		});
+	
+	
+</script>
+	
+   
+   
+
+</body>
+</apex:page>

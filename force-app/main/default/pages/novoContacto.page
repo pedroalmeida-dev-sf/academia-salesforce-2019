@@ -1,0 +1,38 @@
+<apex:page showHeader="true" sidebar="true" controller="novoContactoController" lightningStylesheets="true">
+	<apex:form >
+         <table style="width:100%">
+
+
+          <tr style="font-weight: bold;font-color:#3366ff;">
+            <td bgcolor="#33FFD7">Primeiro Nome</td>
+            <td width = "100%"><apex:Inputtext label="Primeiro Nome" value="{!inputFirstName}"/></td>
+          </tr>
+          <tr style="font-weight: bold;font-color:#3366ff;">
+            <td bgcolor="#33FFD7">Último Nome</td>
+            <td width = "100%"><apex:Inputtext label="Último Nome" value="{!inputLastName}"/></td>
+          </tr>
+            <tr style="font-weight: bold;font-color:#3366ff;">
+            <td bgcolor="#33FFD7">Telefone</td>
+            <td width = "100%"><apex:Inputtext label="Telefone" value="{!inputPhone }"/></td>
+          </tr>
+  
+            <tr style="font-weight: bold;font-color:#3366ff;">
+            <td bgcolor="#33FFD7">Email</td>
+            <td width = "100%"><apex:Inputtext label="Email" value="{!inputEmail}"/></td>
+         
+            </tr>
+            
+            <tr style="font-weight: bold;font-color:#3366ff;">
+            <td bgcolor="#33FFD7">Descrição</td>
+            <td width = "100%"><apex:inputTextarea label="Mensagem" value="{!inputDescription}"/></td>
+          </tr>
+     
+        </table>
+        <br>
+        </br>
+        <br>
+        </br>
+        <apex:commandButton value="Enviar" action="{!save}" html-background="#3d6e96" html-color="#1f527b" html-font-size="16px" html-font-family="OSWALD-regular" html-width="95px" html-height="29px" html-border="0px" html-border-radius="4px" html-margin-top="20px" html-cursor="pointer"/>
+               
+      </apex:form>
+</apex:page>

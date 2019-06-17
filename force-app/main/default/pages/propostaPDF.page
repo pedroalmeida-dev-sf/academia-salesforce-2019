@@ -1,0 +1,24 @@
+<apex:page showHeader="false" sidebar="false" renderAs="pdf" standardcontroller="Opportunity" extensions="propostaPDF_controller">
+	
+    <apex:pageBlock title="opportunity product related list">
+        <apex:pageBlockTable value="{!opptyList}" var="li"> 
+            
+            <apex:column >
+                    <apex:pageBlockTable value="{!li.OpportunityLineItems}"  var="i"> 
+                        
+                        
+                        <apex:column value="{!i.Description}"/>
+                        <apex:column value="{!i.Quantity}"/>
+                        <apex:column value="{!i.UnitPrice}"/>  
+                        <apex:column value="{!i.Discount}"/>
+                        <apex:column value="{!i.TotalPrice}"/>
+                        
+                    </apex:pageBlockTable>
+            </apex:column>
+            
+            
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+
+</apex:page>

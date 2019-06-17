@@ -1,0 +1,13 @@
+<aura:component >
+	
+    <aura:attribute type="Account[]" name="accounts" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   	
+    <lightning:Layout horizontalAlign="center">
+        <Lightning:layoutItem flexibility="auto" padding="around-small">
+        	<Lightning:select>
+            </Lightning:select>
+        </Lightning:layoutItem>
+    
+    </lightning:Layout>
+</aura:component>

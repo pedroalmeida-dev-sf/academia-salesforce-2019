@@ -1,0 +1,99 @@
+<apex:page showHeader="false" sidebar="false" standardController="OrderItem" extensions="addOrderProducts" title="Produtos da Encomenda"> 
+    <html lang="en">
+<head>
+	<title>Cozinha Branca - Produtos Pré-Confeccionados</title>
+    
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--
+   <script src="js/jquery.js"></script>
+   -->
+   <apex:includeScript value="{!URLFOR($Resource.site, 'js/jquery.js')}"/> 
+	
+  <!--
+   <script src="js/jquery.glide.js"></script>
+  -->
+   <apex:includeScript value="{!URLFOR($Resource.site, 'js/jquery.glide.js')}"/> 
+    
+  <!--  <link rel="stylesheet" href="css/style.css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.site, 'css/style.css')}"/>
+    <!--<link rel="stylesheet" href="css/animate.css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.site, 'css/animate.css')}"/>
+
+<!--    <script type="text/javascript" src="js/MyJQ.js"></script>-->
+    <apex:includeScript value="{!URLFOR($Resource.site, 'js/MyJQ.js')}"/> 
+    <!--<script src="js/jquery.localScroll.min.js" type="text/javascript"></script>-->
+    <apex:includeScript value="{!URLFOR($Resource.site, 'js/jquery.localScroll.min.js')}"/> 
+	  
+    <!--<script src="js/jquery.scrollTo.min.js" type="text/javascript"></script> -->
+    <apex:includeScript value="{!URLFOR($Resource.site, 'js/jquery.scrollTo.min.js')}"/> 
+
+    <apex:includeScript value="{!URLFOR($Resource.site, 'js/wow.min.js')}"/> 
+    <!--<script src="js/wow.min.js" type="text/javascript"></script> -->
+
+<!-- scroll function -->
+<script type="text/javascript">
+$(document).ready(function() {
+   $('#navigations').localScroll({duration:800});
+});
+</script>
+
+
+<!--<script src="js/wow.min.js"></script>-->
+<apex:includeScript value="{!URLFOR($Resource.site, 'js/wow.min.js')}"/>
+<script>
+new WOW().init();
+</script>
+
+
+</head>
+
+
+<!--============ Navigation ============-->
+
+          
+    
+<apex:outputPanel html-class="headerwrapper">
+	<apex:outputPanel html-data-id="header" html-class="container">
+		<apex:outputPanel html-class="logo"> <a href="#"><apex:image url="{!URLFOR($Resource.site,
+                  'images/LOGO2.png')}" alt="logo"/></a> </apex:outputPanel><!--end of Logo-->
+        <nav>
+            <ul id="navigations">
+                <li><a href="#navigations">HOME</a></li>
+                <li> <a href="#slider">ACERCA DE NÓS</a></li>
+                <li><a href="#map">LOCALIZAÇÃO</a></li>
+                <li><a href="#bestdishes">MENU</a></li>
+                <li><a href="#contactus">CONTACTE-NOS</a></li>
+            </ul>
+        </nav>
+      </apex:outputPanel> <!--end of header-->
+</apex:outputPanel> <!-- end of headerwrapper-->
+
+    
+    
+    <apex:define name="body">
+    <apex:form >
+    <apex:messages id="error"
+                   styleClass="errorMsg"
+                   layout="table"
+                   style="margin-top:1em;"/>
+      <apex:pageBlock title="" mode="edit">
+        <apex:pageBlockButtons >
+           <apex:commandButton value="Encomendar"
+                               action="{!saveOrderItem}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Produtos da Encomenda"
+                               collapsible="false"
+                               columns="1">
+         <apex:inputField value="{!OrderItem.OrderId}"/>
+         <apex:inputField value="{!OrderItem.Product2Id}"/>
+         <apex:inputField value="{!OrderItem.Quantity}"/>
+         <apex:inputField value="{!OrderItem.UnitPrice}"/>
+        
+                
+         
+        </apex:pageBlockSection>
+     </apex:pageBlock>
+   </apex:form>
+  </apex:define> 
+  </html>
+</apex:page>
