@@ -14,7 +14,7 @@ trigger addCVPublicURL on ContentVersion (after insert) {
         system.debug('FirstPublishLocationId:::::'+selContVersion.FirstPublishLocationId);
         
         //create ContentDistributionPublicURL
-        cntDist = new ContentDistribution();
+        cntDist = new ContentDistribution(); 
         cntDist.ContentVersionId = selContVersion.Id;
         cntDist.Name = 'PublicShare';
         insert cntDist;
