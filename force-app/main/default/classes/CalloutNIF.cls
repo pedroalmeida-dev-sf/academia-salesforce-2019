@@ -1,6 +1,6 @@
 public with sharing class CalloutNIF {
-    
-    public static Boolean makeGetCallout(){//HttpResponse
+    @future(callout=true)
+    public static void makeGetCallout(String Nif_t){//HttpResponse
         nif_pt__c cs = nif_pt__c.getOrgDefaults();
         String endpoint = cs.Endpoint__c;
         String nif = cs.nif__c;
@@ -8,7 +8,7 @@ public with sharing class CalloutNIF {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
         //request.setEndpoint('https://www.nif.pt/?json=1&q=249610280&key=918710436c69a44134712a5a35056f31');
-        request.setEndpoint(endpoint+'?json=1&q='+nif+'&key='+chave);
+        request.setEndpoint(endpoint+'?json=1&q='+Nif_t+'&key='+chave);
         
         request.setMethod('GET'); 
 
@@ -22,6 +22,6 @@ public with sharing class CalloutNIF {
             System.debug('nifvalido: '+nifvalido);
         }
         //return response
-        return nifvalido;
+        //return nifvalido;
     }
 }

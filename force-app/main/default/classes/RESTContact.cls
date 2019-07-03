@@ -59,11 +59,12 @@ global without sharing class RESTContact {
         catch(Exception e){
             return null;
         }
+        
         c.LastName = name;
         c.Email = email;
         c.AccountId = acc.Id;
         insert c;
-
+        
         return c;
     }
     

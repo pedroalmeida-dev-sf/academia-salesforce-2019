@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable">
+<aura:attribute name="recordId" type="String"/>
+<div class="academia">
+    {!v.recordId}
+</div>
+<lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Contact" onsuccess="{c.showToast}">
+    <lightning:inputField fieldName="Name" />
+    <div class="slds-m-top_medium">
+        <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+    </div>
+</lightning:recordEditForm>
+
+</aura:component>
