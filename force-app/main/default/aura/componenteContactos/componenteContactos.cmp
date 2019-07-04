@@ -2,16 +2,43 @@
 <aura:handler name="init" value="{!this}" action="{!c.doInit}"></aura:handler>    
 <aura:attribute name="contactos" type="List"></aura:attribute>  
 <aura:attribute name="columns" type="List"/>
-    <div class="academia lista">
+<aura:attribute name="showContacts" type="Boolean" default="false"/>
+<!-- <aura:attribute name="showContacts3" type="Integer" default="0"/> validacao com contador por exemplo-->
+<div class="academia lista">
+<aura:if isTrue="{!v.showContacts}">
+    
         <!-- <aura:iteration items="{!v.contactos}" var="cnt">
             <div class ="">
                     {!cnt.Id} | {!cnt.Name} | {!cnt.Email}
             </div>   
         </aura:iteration> -->
+        <div class="slds-text-align_center slds-p-vertical_medium">
+            <lightning:button variant="destructive" label="Esconder Tabela" title="Esconder Tabela" onclick="{! c.hideTabela }"/>
+        </div>
         <lightning:datatable
             columns="{!v.columns}"
             data="{!v.contactos}"
             keyField="id"
             />
-    </div>
+    
+    <aura:set attribute="else">
+        <div class="slds-text-align_center slds-p-vertical_medium">
+            <lightning:button variant="success" label="Mostrar Tabela" title="Mostrar Tabela" onclick="{! c.showTabela }"/>
+            <div class="slds-text-align_center slds-p-vertical_medium">
+                Tabela Escondida
+            </div>
+            
+        </div>
+        <div class="form">
+                <lightning:input name="firstName" label="Nome" aura:id="firstName" />
+                <lightning:input name="lastName" label="Apelido" aura:id="lastName" />
+                <lightning:input type="email" name="email" value="" label="Email" aura:id="email"/>
+                <lightning:button variant="success" label="Criar Contacto" title="Criar Contacto" onclick="{! c.createContact }" class="slds-m-vertical_medium"/>
+            </div>
+    </aura:set>
+</aura:if>
+
+    
+</div>
+
 </aura:component>
