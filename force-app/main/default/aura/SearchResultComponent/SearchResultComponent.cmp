@@ -1,3 +1,7 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="ContactController">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:attribute name="title" type="String"></aura:attribute>
+<aura:attribute name="searchText" type="String"></aura:attribute>
 
+<div class="slds-text-heading_medium">{!v.title}</div>
+{!v.searchText}
 </aura:component>	
