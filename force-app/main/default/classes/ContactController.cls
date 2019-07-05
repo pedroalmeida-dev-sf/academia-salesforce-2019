@@ -23,4 +23,11 @@ public class ContactController {
         return c;
     }
 
+    @AuraEnabled
+    public static List<Contact> getSearchedContacts(String searchTerm){
+        String term = '%'+searchTerm+'%';
+
+        return [SELECT Id, Name FROM Contact WHERE Name LIKE: term];
+    }
+
 }

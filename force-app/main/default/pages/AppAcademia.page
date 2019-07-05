@@ -1,0 +1,21 @@
+<apex:page showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false">
+<apex:includeLightning/>
+<html>
+    <head>
+        <body>
+            <div id="academia">
+                <script>
+                    $Lightning.use("c:MainApp",function(){
+                        $Lightning.createComponent("c:MainComponent",
+                        {
+
+                        },"academia",function(component){
+                            console.log("component is created!");
+                        });
+                    });
+                </script>
+            </div>
+        </body>
+    </head>
+</html>
+</apex:page>

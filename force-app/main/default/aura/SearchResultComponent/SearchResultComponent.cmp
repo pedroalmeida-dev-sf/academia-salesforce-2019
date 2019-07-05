@@ -1,7 +1,17 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="ContactController">
 <aura:attribute name="title" type="String"></aura:attribute>
 <aura:attribute name="searchText" type="String"></aura:attribute>
+<aura:attribute name="searchText2" type="String"></aura:attribute>
+<aura:attribute name="contactList" type="List"></aura:attribute>
+
+<aura:handler event="c:searchAppEvent" action="{!c.appEventHandler}"/>
 
 <div class="slds-text-heading_medium">{!v.title}</div>
-{!v.searchText}
+<!-- <div>{!v.searchText}</div>
+<div>{!v.searchText2}</div> -->
+<aura:iteration items="{!v.contactList}" var="cont">
+    <div>
+        {!cont.Name}
+    </div>
+</aura:iteration>
 </aura:component>	
